@@ -6,19 +6,27 @@
 from os import system
 if system("clear") != 0: system("cls")
 
+# ===================================================
+# SENTENCIA SIMPLE CONDICIONAL (IF)
+# ===================================================
+
 print("\n Sentencia simple condicional")
 # Podemos usar la palabra clave "if" para ejecutar un bloque de código
 # solo si se cumple una condición.
 edad = 18
-if edad >= 18:
+if edad >= 18: # el : sirve como llaves para determinar qué es lo que habrá dentro del if.
   print("Eres mayor de edad")
   print("¡Felicidades!")
 
 # Si no se cumple la condición, no se ejecuta el bloque de código
 edad = 15
-if edad >= 18:
+if edad >= 18: 
   print("Eres mayor de edad")
   print("¡Felicidades!")
+
+# ===================================================
+# SENTENCIA CONDICIONAL CON IF - ELSE
+# ===================================================
 
 # Podemos usar el comando "else" para ejecutar un bloque de código
 # si no se cumple la condición anterior del if
@@ -28,6 +36,10 @@ if edad >= 18:
   print("Eres mayor de edad")
 else:
   print("Eres menor de edad")
+
+# ===================================================
+# SENTENCIA CONDICIONAL CON IF - ELIF
+# ===================================================
 
 print("\n Sentencia condicional con elif")
 nota = 5
@@ -47,6 +59,10 @@ else:
 print("\n Condiciones múltiples")
 edad = 16
 tiene_carnet = True
+
+# ===================================================
+# SENTENCIA SIMPLE CONDICIONAL CON OPERADORES LÓGICOS
+# ===================================================
 
 # Los operadores lógicos en Python son:
 # and: True si ambos operandos son verdaderos
@@ -69,12 +85,20 @@ if edad >= 18 or tiene_carnet:
 else:
   print("Paga al policía y te deja conducir!!!")
 
+# ===================================================
+# SENTENCIA CONDICIONAL NEGATIVO CON IF NOT
+# ===================================================
+
 # También tenemos el operador lógico "not"
 # que nos permite negar una condición
 es_fin_de_semana = False
 # JavaScript -> !
 if not es_fin_de_semana:
   print("¡midu, venga que hay que streamear!")
+
+# ===================================================
+# SENTENCIA ANIDADAS IF DENTRO DE IF
+# ===================================================
 
 # Podemos anidar condicionales, uno dentro del otro
 # para determinar múltiples condiciones aunque
