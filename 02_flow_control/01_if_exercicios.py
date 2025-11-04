@@ -27,22 +27,22 @@ else: # Si no, será:
 # Realiza la operación y muestra el resultado (maneja la división entre zero)
 
 print("\nEjercicio 2:")
-num3 = int(input("Introduce el primer número: \n"))
-num4 = int(input("Introduce el segundo número: \n"))
-operacion = input("Qué cálculo matemático quieres hacer? \n")
+num3 = int(input("Introduce el primer número: \n")) # Pedimos que el usuario nos de un número
+num4 = int(input("Introduce el segundo número: \n")) # Pedimos que el usuario nos de otro número
+operacion = input("Qué cálculo matemático quieres hacer? \n") # Pedimos que el usuario nos de una operación
 
-if operacion == "*":
+if operacion == "*": # Si la operación es una multiplicación:
     print(f"El resultado es: {num3} * {num4} = {num3 * num4}")
-elif operacion == "+":
+elif operacion == "+": # O si la operación es una suma:
     print(f"El resultado es: {num3} + {num4} = {num3 + num4}")
-elif operacion == "-":
+elif operacion == "-": # O si la operación es una resta: 
     print(f"El resultado es: {num3} - {num4} = {num3 - num4}")
-elif operacion == "/":
-    if num4 == 0:
+elif operacion == "/": # O si la operación es una división: 
+    if num4 == 0: # Y además el segundo número es un 0:
         print("Error: No se puede dividir entre 0.")
-    else:
+    else: # Si no hazme la división normal.
         print(f"El resultado es: {num3 / num4}")
-else:
+else: # Si no es nada de lo anterior:
     print("Algo ha salido mal.")
 
 # Ejercicio 3: Año bisiesto
