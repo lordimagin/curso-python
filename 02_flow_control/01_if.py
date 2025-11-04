@@ -123,6 +123,10 @@ else:
 # else:
 #   print("Quédate en casa")
 
+# ===================================================
+# 
+# ===================================================
+
 # Ten en cuenta que hay valores que al usarlos como condiciones
 # en Python son evaluados como verdaderos o falsos
 # por ejemplo, el número 5, es True
@@ -147,18 +151,27 @@ es_el_tres = numero == 3 # comparación
 if es_el_tres:
   print("El número es 3")
 
+# ===================================================
+# CONDICIÓN TERNARIA
+# ===================================================
+
 # A veces podemos crear condicionales en una sola línea usando
 # las ternarias, es una forma concisa de un if-else en una línea de código
 print("\nLa condición ternaria:")
-# [código si cumple la condición] if [condicion] else [codigo si no cumple]
+# [mensaje si cumple la condición] if [condicion] else [mensaje si no cumple]
 
 edad = 17
 mensaje = "Es mayor de edad" if edad >= 18 else "Es menor de edad"
 print(mensaje)
 
-###
+if edad >= 18:
+  print("Mayor de edad")
+else:
+  print("Menor de edad")
+
+# ===================================================
 # EJERCICIOS
-###
+# ===================================================
 
 # Ejercicio 1: Determinar el mayor de dos números
 # Pide al usuario que introduzca dos números y muestra un mensaje
