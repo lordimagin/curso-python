@@ -56,10 +56,6 @@ elif nota >= 5:
 else:
   print("¡No está calificado!")
 
-print("\n Condiciones múltiples")
-edad = 16
-tiene_carnet = True
-
 # ===================================================
 # SENTENCIA SIMPLE CONDICIONAL CON OPERADORES LÓGICOS
 # ===================================================
@@ -71,17 +67,21 @@ tiene_carnet = True
 # && sería and
 # || sería or
 
-# En el caso que seas mayor de edad y tengas carnet...
+print("\n Condiciones múltiples")
+edad = 16
+tiene_carnet = True
+
+# En el caso que seas mayor de edad Y tengas carnet...
 # entonces podrás conducir
 if edad >= 18 and tiene_carnet:
   print("Puedes conducir 🚗")
 else:
   print("POLICIA 🚔!!!1!!!")
 
-# En un pueblo de Isla Margarita son más laxos y
-# te dejan conducir si eres mayor de edad O tienes carnet
+# En un pueblo de Sevilla son más laxos y
+# te dejan conducir si eres mayor de edad Ó tienes carnet
 if edad >= 18 or tiene_carnet:
-  print("Puedes conducir en la Isla Margarita 🚗")
+  print("Puedes conducir en el pueblo de Sevilla 🚗")
 else:
   print("Paga al policía y te deja conducir!!!")
 
@@ -94,7 +94,7 @@ else:
 es_fin_de_semana = False
 # JavaScript -> !
 if not es_fin_de_semana:
-  print("¡midu, venga que hay que streamear!")
+  print("¡Marc, puedes jugar a full!")
 
 # ===================================================
 # SENTENCIA ANIDADAS IF DENTRO DE IF
