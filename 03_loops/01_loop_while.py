@@ -8,106 +8,88 @@ if system("clear") != 0: system("cls")
 
 print("\n Bucle while:")
 
-# Bucle con una simple condición
-contador = 0
+# ===================================================
+# BUCLE CON UNA SIMPLE CONDICIÓN
+# ===================================================
 
-while contador <= 5:
-  print(contador)
-  contador += 1 # es super importante para evitar un bucle infinito
+contador = 0 # Creamos un contador 
 
-# utilizando la palabra break, para romper el bucle
+while contador <= 5: # Mientras el contador sea menor o igual a 5:
+  print(contador) # Ve mostrándome el valor del contador.
+  contador += 1 # Con esto vamos incrementando en 1 el valor del contador hasta llegar a la menta || es super importante para evitar un bucle infinito
+
+# ===================================================
+# UTILIZANDO LA PALABRA 'BREAK', PARA ROMPER EL BUCLE
+# ===================================================
+
 print("\n Bucle while con break:")
 contador = 0
 
-while True:
-  print(contador)
-  contador += 1
-  if contador == 5:
-    break # sale del bucle
+while True: # Mientras sea verdad (osea, siempre):
+  print(contador) # muéstrame el valor del contador
+  contador += 1 # súmame 1 al valor del contador
+  if contador == 5: # Pero ojito, si el valor del contador = 5:
+    break # párame el bucle
 
-# continue, que lo hace es saltar esa iteración en concreto
-# y continuar con el bucle
+# ===================================================
+# UTILIZANDO LA PALABRA 'CONTINUE' 
+# ===================================================
+
+# 'Continue', que lo hace es saltar esa iteración en concreto y continuar con el bucle
+# Puede usarse como filtro
 print("\n Bucle con continue")
 contador = 0
-while contador < 10:
-  contador += 1
+while contador < 10: # Mientras el contador sea menor a 10:
+  contador += 1 # vamos incrementando el valor del contador en 1
 
-  if contador % 2 == 0:
-    continue
+  if contador % 2 == 0: # pero ojito, si el valor del contador es divisible entre 2
+    continue # procedemos a seguir con la siguiente iteración (que volvamos a empezar el bucle, independientemente de todo lo que haya debajo)
 
   print(contador)
 
+# ===================================================
+# BUCLE CON EL 'ELSE'
+# ===================================================
 # else, esta condición cuando se ejecuta?
 print("\n Bucle while con else:")
 contador = 0
-while contador < 5:
-  print(contador)
-  contador += 1
-else:
+while contador < 5: # Mientras el valor del contador sea menor a 5:
+  print(contador) # imprime el valor del contador
+  contador += 1 # ve aumentando el valor del contador
+  # break --> cuando hay un 'break' en el bucle y se ejecuta, no pasamos al 'else' y no se inicia. || Único caso donde el 'else' no se ejecuta.
+else: # Cuando el valor del contador llegue a 5, hazme lo siguiente:
   print("El bucle ha terminado")
 
-# else, esta condición cuando se ejecuta?
-print("\n Bucle while con else:")
-contador = 0
-while contador < 5:
-  print(contador)
-  contador += 1
-else:
-  print("El bucle ha terminado")
+# ===================================================
+# CASOS PRÁCTICOS
+# ===================================================
 
-# pedirle al usuario un número que tiene
-# que ser positivo si no, no le dejamos en paz
+# pedirle al usuario un número que tiene que ser positivo si no, no le dejamos en paz
 numero = -1
-while numero < 0:
-  numero = int(input("Escribe un número positivo: "))
-  if numero < 0:
+while numero < 0: # Mientras el valor del número sea menor a 0:
+  numero = int(input("Escribe un número positivo: ")) # Le pedimos al usuario que introduzca un número (al escribir, es una cadena, con lo que lo transformamos en INT)
+  if numero < 0: # Si el número es menor a 0, me imprimirá lo de abajo y volveremos a empezar el bucle.
     print("El número debe ser positivo. Intenta otra vez, majo o maja.")
 
-print(f"El número que has introducido es {numero}")
+print(f"El número que has introducido es {numero}") # Si el valor del número es mayor a 0, escribe esto.
 
+# El único problema es que si escribe alguna letra, el programa peta, por eso haremos el siguiente punto.
+
+# ===================================================
+# BUCLES CON 'TRY - EXCEPT'
+# ===================================================
+
+# Lo que conseguimos con el try-except es controlar el error que salga
+# para que no le aparezca al usuario y determinar qué es lo que queremos que 
+# el usuario vea por pantalla.
 numero = -1
 while numero < 0:
   try:
     numero = int(input("Escribe un número positivo: "))
     if numero < 0:
       print("El número debe ser positivo. Intenta otra vez, majo o maja.")
-  except:
-    print("Lo que introduces debe ser un número, que si no peta!")
+  except: # En lugar de enseñarle el error técnico, ponle esto:
+    print("Lo que introduces debe ser un número, que si no peta!") # Volvemos a empezar el bucle.
 
 print(f"El número que has introducido es {numero}")
 
-###
-# EJERCICIOS (while)
-###
-
-# Ejercicio 1: Cuenta atrás
-# Imprime los números del 10 al 1 usando un bucle while.
-print("\nEjercicio 1:")
-
-# Ejercicio 2: Suma de números pares (while)
-# Calcula la suma de los números pares entre 1 y 20 (inclusive) usando un bucle while.
-print("\nEjercicio 2:")
-
-# Ejercicio 3: Factorial de un número
-# Pide al usuario que introduzca un número entero positivo.
-# Calcula su factorial usando un bucle while.
-# El factorial de un número entero positivo es el producto de todos los números del 1 al ese número. Por ejemplo, el factorial de 5
-# 5! = 5 x 4 x 3 x 2 x 1 = 120.
-print("\nEjercicio 3:")
-
-# Ejercicio 4: Validación de contraseña
-# Pide al usuario que introduzca una contraseña.
-# La contraseña debe tener al menos 8 caracteres.
-# Usa un bucle while para seguir pidiendo la contraseña hasta que cumpla con los requisitos.
-# Si la contraseña es válida, imprime "Contraseña válida".
-print("\nEjercicio 4:")
-
-# Ejercicio 5: Tabla de multiplicar
-# Pide al usuario que introduzca un número.
-# Imprime la tabla de multiplicar de ese número (del 1 al 10) usando un bucle while.
-print("\nEjercicio 5:")
-
-# Ejercicio 6: Números primos hasta N
-# Pide al usuario que introduzca un número entero positivo N.
-# Imprime todos los números primos menores o iguales que N usando un bucle while.
-print("\nEjercicio 6:")
