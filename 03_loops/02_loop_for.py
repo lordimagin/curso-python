@@ -71,9 +71,14 @@ for idx, animal in enumerate(animales):
   
   print(animal)
 
-# Comprensión de listas (list comprehension)
+# ===================================================
+# COMPRENSIÓN DE LISTAS (LIST COMPREHENSION)
+# ===================================================
+
+# Hacer en una linea el bucle del for.
 animales = ["perro", "gato", "raton", "loro", "pez", "canario"]
-animales_mayus = [animal.upper() for animal in animales]
+# [lo que queremos hacer PARA cada uno de los elementos DENTRO de la lista X]
+animales_mayus = [animal.upper() for animal in animales] # Quiero que cada uno de los animales de la lista hagas que sus letras me las pases a mayus.
 print(animales_mayus)
 
 # Muestra los números pares de una lista
