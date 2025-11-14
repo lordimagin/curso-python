@@ -76,4 +76,4 @@ for palabra in palabras:
     # Convertimos la palabra en minúscula y miramos si empieza por la letra seleccionada por el usuario.
     # Si coincide, incrementamos el contador en 1 y repetimos el proceso.
     contador += 1
-print(f"Hay {contador} palabras que empiezan con la letra {letra}")
+print(f"Hay {contador} palabras que empiezan con la letra '{letra}'")
