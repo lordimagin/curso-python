@@ -6,48 +6,48 @@
 from os import system
 if system("clear") != 0: system("cls")
 
-# """ Definición de una función
+""" Definición de una función
 
-# def nombre_de_la_funcion(parametro1, parametro2, ...):
-#   # docstring
-#   # cuerpo de la función
-#   return valor_de_retorno # opcional
+def nombre_de_la_funcion(parametro1, parametro2, ...):
+  # docstring
+  # cuerpo de la función
+  return valor_de_retorno # opcional
 
-# """
+"""
 
-# # Ejemplo de una función para imprimir algo en consola
-# def saludar():
-#   print("¡Hola!")
+# Ejemplo de una función para imprimir algo en consola
+def saludar():
+  print("¡Hola!")
 
-# # Ejemplo de una función con parámetro
-# def saludar_a(nombre):
-#   print(f"¡Hola {nombre}!")
+# Ejemplo de una función con parámetro
+def saludar_a(nombre):
+  print(f"¡Hola {nombre}!")
 
-# saludar_a("midudev")
-# saludar_a("madeval")
-# saludar_a("pheralb")
-# saludar_a("felixicaza")
-# saludar_a("Carmen Ansio")
+saludar_a("midudev")
+saludar_a("madeval")
+saludar_a("pheralb")
+saludar_a("felixicaza")
+saludar_a("Carmen Ansio")
 
-# # Funciones con más parámetros
-# def sumar(a, b):
-#   suma = a + b
-#   return suma
+# Funciones con más parámetros
+def sumar(a, b):
+  suma = a + b
+  return suma
 
-# result = sumar(2, 3)
-# print(result)
+result = sumar(2, 3)
+print(result)
 
-# # Documentar las funciones con docstring
-# def restar(a, b):
-#   """Resta dos números y devuelve el resultado"""
-#   return a - b
+# Documentar las funciones con docstring
+def restar(a, b):
+  """Resta dos números y devuelve el resultado"""
+  return a - b
 
 # parámetros por defecto
-# def multiplicar(a, b = 2):
-#   return a * b
+def multiplicar(a, b = 2):
+  return a * b
 
-# print(multiplicar(2))
-# print(multiplicar(2, 3))
+print(multiplicar(2))
+print(multiplicar(2, 3))
 
 # Argumentos por posición
 def describir_persona(nombre: str, edad: int, sexo: str):

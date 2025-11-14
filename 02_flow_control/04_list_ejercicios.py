@@ -15,6 +15,7 @@ if system("clear") != 0: system("cls")
 print("Ejercicio 1: Añadir y modificar elementos:")
 print("---------------------------------------------\n")
 lista1 = [1, 2, 3, 4, 5]
+
 lista1.append(6)
 print(f"Lista con el 6 añadido: {lista1}")
 
