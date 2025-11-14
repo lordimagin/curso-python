@@ -42,6 +42,10 @@ nums = range(10)
 list_of_nums = list(nums)
 print(list_of_nums)
 
+# ===================================================
+# REPETICIONES
+# ===================================================
+
 # seria para hacerlo cinco veces
 for _ in range(5):
   print("hacer cinco veces algo")
