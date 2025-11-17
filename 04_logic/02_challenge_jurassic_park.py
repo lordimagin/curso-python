@@ -10,13 +10,11 @@ Escribe una función en Python que reciba una lista de números enteros y devuel
 from os import system
 if system("clear") != 0: system("cls")
 
-# Para ver si un número es par
-# siempre usamos el módulo %
-# nos da el resto de la división: eggs % 2 == 2
+# Para ver si un número es par siempre usamos el módulo % nos da el resto de la división: eggs % 2 == 2
 
-def count_carnivore_dinosaur_eggs(egg_list) -> int:
+def count_carnivore_dinosaur_eggs(egg_list) -> int: # -> int (el valor que devuelve)
   """
-  Esta función recibe una lista de numeros enteros que representan la cantidad de huevos que han puesto diferentes dinosaurios en el parque jurásico y los de número par son de carnívoros. Devuelve un número con la suma de todos los huevos de carnívoros.
+  Esta función recibe una lista de números enteros que representan la cantidad de huevos que han puesto diferentes dinosaurios en el parque jurásico y los de número par son de carnívoros. Devuelve un número con la suma de todos los huevos de carnívoros.
   """
   total_carnivore_eggs = 0
 
