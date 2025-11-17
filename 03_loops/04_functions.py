@@ -37,46 +37,70 @@ def sumar(a, b):
 result = sumar(2, 3)
 print(result)
 
-# Documentar las funciones con docstring
+# ===================================================
+# DOCUMENTAR LAS FUNCIONES CON DOCSTRING
+# ===================================================v
+
 def restar(a, b):
-  """Resta dos números y devuelve el resultado"""
+  """ Resta dos números y devuelve el resultado """ # Sirve para documentar qué hace el método, también aparece cuando pasas el ratón por encima del nombre del método.
   return a - b
 
-# parámetros por defecto
+# ===================================================
+# PARÁMETROS POR DEFECTO
+# ===================================================
+
 def multiplicar(a, b = 2):
+  """ Si solamente determinados el parámetro 'a', el valor de 'b' será el que hayamos puesto en el método al llamarlo, 
+   sino, también podemos decirle qué valor debe de tener. """
   return a * b
 
 print(multiplicar(2))
 print(multiplicar(2, 3))
 
-# Argumentos por posición
+# ===================================================
+# ARGUMENTOS POR POSICIÓN
+# ===================================================
+
 def describir_persona(nombre: str, edad: int, sexo: str):
   print(f"Soy {nombre}, tengo {edad} años y me identifico como {sexo}")
 
 # parámetros son posicionales
-describir_persona(1, 25, "gato")
-describir_persona("midudev", 25, "gato")
-describir_persona("hombre", "madeval", 39)
+# Colocas las variables en un orden determinado, pero si tú varías ese orden, rompes el método:
+describir_persona(1, 25, "gato") # ❌
+describir_persona("midudev", 25, "gato") # ✅
+describir_persona("hombre", "madeval", 39) # ❌
 
-# Argumentos por clave
+# ===================================================
+# ARGUMENTOS POR CLAVE
+# ===================================================
+
 # parámetros nombrados
+# De esta manera, ya exiges que el valor de los parámetros sean esos, independientemente del orden que se establezca:
 describir_persona(sexo="gato", nombre="midudev", edad=25)
 describir_persona(sexo="hombre", nombre="madeval", edad=21) 
 
-# Argumentos de longitud de variable (*args):
+# ===================================================
+# ARGUMENTOS DE LONGITUD DE VARIABLE (*args)
+# ===================================================
+
 def sumar_numeros(*args):
-  suma = 0
-  for numero in args:
-    suma += numero
+  """ Sumará los números con un valor indefinido de parámetros, que se sabrá una vez se llame al método """
+  suma = 0 # Determinamos la variable con valor 0
+  for numero in args: # Para todos los números dentro de 'args' (que son toooooodos los valores)
+    suma += numero # Cógelos y ves sumándolos
   return suma
 
 print(sumar_numeros(1, 2, 3, 4, 5))
 print(sumar_numeros(1, 2))
 print(sumar_numeros(1, 2,3 ,4, 5, 6, 7, 8, 9, 10))
 
-# Argumentos de clave-valor variable (**kwargs):
-def mostrar_informacion_de(**kwargs):
-  for clave, valor in kwargs.items():
+# ===================================================
+# ARGUMENTOS DE CLAVE-VALOR VARIABLE (**kwargs)
+# ===================================================
+
+def mostrar_informacion_de(**kwargs): # kwargs -> K words 
+  """ Podemos introducirle tantos parámetros nombrados como queramos """
+  for clave, valor in kwargs.items(): # Para cada 'clave' (nombre de la variable) y 'valor' (valor de la variable) dentro de todos los parámetros de **kwargs
     print(f"{clave}: {valor}")
 
 mostrar_informacion_de(nombre="midudev", edad=25, sexo="gato")

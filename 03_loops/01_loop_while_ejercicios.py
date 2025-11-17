@@ -65,14 +65,17 @@ print(f"El factorial del número {numero} es: {factorial}")
 print("\nEjercicio 4: Validación de contraseña.")
 print("---------------------------------------------\n")
 
-password = "" # Iniciamos la password vacía
+def validacion():
+    password = ""   # Inicializamos la variable
+    while len(password) < 8:
+        password = input("Introduzca una contraseña (debe de contener 8 caracteres mínimo): ")
+        if len(password) < 8:
+            print("La contraseña es demasiado corta. Inténtalo de nuevo.")
+    return password
 
-while len(password) < 8: # Mientras la longitud de la password sea menor de 8 carácteres:
-   password = input("Introduzca una contraseña (debe de contener 8 carácteres mínimo): ")
-   if len(password) < 8: # Si la password es más corta de 8:
-      print("La contraseña es demasiado corta. Inténtalo de nuevo.")
-
-print("Contraseña válida.")
+# Llamada a la función
+password = validacion()
+print("Contraseña aceptada:", password)
 
 # Ejercicio 5: Tabla de multiplicar
 # Pide al usuario que introduzca un número.
@@ -80,24 +83,44 @@ print("Contraseña válida.")
 print("\nEjercicio 5: Tabla de multiplicar.")
 print("---------------------------------------------\n")
 
-numero = -1
+# numero = -1
 
-# Validación de que se pone lo que se pide y no otra cosa.
-while numero < 0:
-   try:
-      numero = int(input("Escribe un número: "))
-      if numero < 0:
-         print("El número debe de ser positivo. Introduce un número correcto.")
-   except:
-      print("Lo que introduces no es un número!")
+# # Validación de que se pone lo que se pide y no otra cosa.
+# while numero < 0:
+#    try:
+#       numero = int(input("Escribe un número: "))
+#       if numero < 0:
+#          print("El número debe de ser positivo. Introduce un número correcto.")
+#    except:
+#       print("Lo que introduces no es un número!")
 
-multiplicador = 0 # Iniciamos el multiplicador de la tabla a 0 (porque existe el 1 x 0)
+#    multiplicador = 0 # Iniciamos el multiplicador de la tabla a 0 (porque existe el 1 x 0)
 
-while multiplicador <= 10: # Mientras el multiplicador sea menor o igual a 10 (porque la tabla es hasta el 10)
-   resultado = numero * multiplicador # Ponemos el resultado de la multiplicación en una variable
-   print(f"{numero} x {multiplicador} = {resultado}" ) # Imprime NUMERO x MULTIPLICADOR = RESULTADO
-   multiplicador += 1 # Incrementa en 1 el valor del multiplicador y volvemos al bucle.
+#    while multiplicador <= 10: # Mientras el multiplicador sea menor o igual a 10 (porque la tabla es hasta el 10)
+#       resultado = numero * multiplicador # Ponemos el resultado de la multiplicación en una variable
+#       print(f"{numero} x {multiplicador} = {resultado}" ) # Imprime NUMERO x MULTIPLICADOR = RESULTADO
+#       multiplicador += 1 # Incrementa en 1 el valor del multiplicador y volvemos al bucle.
 
+def tabla_multiplicar():
+    numero = -1
+
+    # Validación
+    while numero < 0:
+        try:
+            numero = int(input("Escribe un número: "))
+            if numero < 0:
+                print("El número debe de ser positivo. Introduce un número correcto.")
+        except:
+            print("Lo que introduces no es un número!")
+
+    # Tabla
+    multiplicador = 0
+    while multiplicador <= 10:
+        resultado = numero * multiplicador
+        print(f"{numero} x {multiplicador} = {resultado}")
+        multiplicador += 1
+
+tabla_multiplicar()
 
 # Ejercicio 6: Números primos hasta N
 # Pide al usuario que introduzca un número entero positivo N.
@@ -107,33 +130,65 @@ while multiplicador <= 10: # Mientras el multiplicador sea menor o igual a 10 (p
 print("\nEjercicio 6: Números primos hasta N.")
 print("---------------------------------------------\n")
 
-n = -1
+# n = -1
 
-# Validación de que se pone lo que se pide y no otra cosa.
-while n < 0:
-   try:
-      n = int(input("Escribe un número: "))
-      if n < 0:
-         print("El número debe de ser positivo. Introduce un número correcto.")
-   except:
-      print("Lo que introduces no es un número!")
+# # Validación de que se pone lo que se pide y no otra cosa.
+# while n < 0:
+#    try:
+#       n = int(input("Escribe un número: "))
+#       if n < 0:
+#          print("El número debe de ser positivo. Introduce un número correcto.")
+#    except:
+#       print("Lo que introduces no es un número!")
 
-numero = 2 # Iniciamos a 2 porque es el primer número primo.
-while numero <= n: # Mientras el número sea menor o igual al número escrito (n):
-  es_primo = True  # Asumimos que el número es primo hasta que se demuestre lo contrario
-  divisor = 2
-  while divisor * divisor <= numero:  # Optimizamos: no es necesario probar divisores hasta numero
-    # Este es el truco de optimización:
-    # No hace falta comprobar todos los divisores hasta numero - 1.
-    # Basta con hacerlo hasta la raíz cuadrada del número, porque si numero tiene un divisor mayor que su raíz, el otro divisor ya habrá sido probado antes.
-    # 📘 Ejemplo:
-    # Para numero = 36, la raíz cuadrada es 6.
-    # Si 36 es divisible por 9, entonces también lo es por 4, y ya lo habrías comprobado antes.
-    if numero % divisor == 0: # Comprobación de si el número es primo o no.
-      es_primo = False  # Si encontramos un divisor, no es primo
-      break  # Salimos del bucle interior
-    divisor += 1 # Incrementamos en 1 el divisor y volvemos a empezar.
-  if es_primo:
-    print(numero)
+# numero = 2 # Iniciamos a 2 porque es el primer número primo.
+# while numero <= n: # Mientras el número sea menor o igual al número escrito (n):
+#   es_primo = True  # Asumimos que el número es primo hasta que se demuestre lo contrario
+#   divisor = 2
+#   while divisor * divisor <= numero:  # Optimizamos: no es necesario probar divisores hasta numero
+#     # Este es el truco de optimización:
+#     # No hace falta comprobar todos los divisores hasta numero - 1.
+#     # Basta con hacerlo hasta la raíz cuadrada del número, porque si numero tiene un divisor mayor que su raíz, el otro divisor ya habrá sido probado antes.
+#     # 📘 Ejemplo:
+#     # Para numero = 36, la raíz cuadrada es 6.
+#     # Si 36 es divisible por 9, entonces también lo es por 4, y ya lo habrías comprobado antes.
+#     if numero % divisor == 0: # Comprobación de si el número es primo o no.
+#       es_primo = False  # Si encontramos un divisor, no es primo
+#       break  # Salimos del bucle interior
+#     divisor += 1 # Incrementamos en 1 el divisor y volvemos a empezar.
+#   if es_primo:
+#     print(numero)
 
-  numero += 1
+#   numero += 1
+
+def imprimir_primos_hasta_n():
+    n = -1
+
+    # Validación
+    while n < 0:
+        try:
+            n = int(input("Escribe un número: "))
+            if n < 0:
+                print("El número debe ser positivo. Intenta de nuevo.")
+        except:
+            print("Lo que introduces no es un número!")
+
+    # Cálculo e impresión de primos
+    numero = 2
+    while numero <= n:
+        es_primo = True
+        divisor = 2
+
+        # Comprobación hasta la raíz cuadrada
+        while divisor * divisor <= numero:
+            if numero % divisor == 0:
+                es_primo = False
+                break
+            divisor += 1
+
+        if es_primo:
+            print(numero)
+
+        numero += 1
+
+imprimir_primos_hasta_n()
