@@ -11,6 +11,7 @@ if system("clear") != 0: system("cls")
 # EJEMPLO TÍPICO DE DICCIONARIO (OBJETOS EN JAVASCRIPT)
 # ===================================================
 
+# llave : valor
 persona = {
   "nombre": "midudev",
   "edad": 25,
@@ -72,21 +73,21 @@ print("nombre" in persona) # True # Muéstrame si la propiedad 'name' existe den
 # ===================================================
 
 print("\nkeys:")
-print(persona.keys())
+print(persona.keys()) #las llaves son los atributos, las propiedades
 
 # ===================================================
 # OBTENCIÓN DE TODOS LOS VALORES (.VALUES())
 # ===================================================
 
 print("\nvalues:")
-print(persona.values())
+print(persona.values()) # El valor es eso, el valor de cada propiedad/atributo
 
 # ===================================================
 # OBTENCIÓN TANTO DE LA CLAVE COMO EL VALOR (.ITEMS())
 # ===================================================
 
 print("\nitems:")
-print(persona.items())
+print(persona.items()) # Items equivale a todo, mostrando la llave y el valor
 
 for key, value in persona.items():
   print(f"{key}: {value}")
