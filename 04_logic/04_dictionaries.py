@@ -7,7 +7,10 @@
 from os import system
 if system("clear") != 0: system("cls")
 
-# ejemplo tipico de diccionario
+# ===================================================
+# EJEMPLO TÍPICO DE DICCIONARIO (OBJETOS EN JAVASCRIPT)
+# ===================================================
+
 persona = {
   "nombre": "midudev",
   "edad": 25,
@@ -20,43 +23,68 @@ persona = {
   }
 }
 
-# para acceder a los valores
+# ===================================================
+# ACCESO A LOS VALORES
+# ===================================================
+
 print(persona["nombre"])
 print(persona["calificaciones"][2])
 print(persona["socials"]["twitter"])
 
-# cambiar valores al acceder
+# ===================================================
+# MODIFICACIÓN DE LOS VALORES
+# ===================================================
+
 persona["nombre"] = "madeval"
 persona["calificaciones"][2] = 10
 
-# eliminar completamente una propiedad
+# ===================================================
+# ELIMINACIÓN COMPLETA DE UNA PROPIEDAD (DEL)
+# ===================================================
+
 del persona["edad"]
 # print(persona)
 
+# De esta manera guardamos el valor eliminado a una variable.
 es_estudiante = persona.pop("es_estudiante") 
 print(f"es_estudiante: {es_estudiante}")
 print(persona)
 
-# sobreescribir un diccionario con otro diccionario
+# ===================================================
+# SOBREESCRIBIR UN DICCIONARIO CON OTRO DICCIONARIO (UPDATE)
+# ===================================================
+
 a = { "name": "miduev", "age": 25 }
 b = { "name": "madeval", "es_estudiante": True }
 
-a.update(b)
+a.update(b) # Quiero que la 'a' se actualice con los datos de la 'b' y los sobreescriba.
 print(a)
 
-# comprobar si existe una propiedad
-print("name" in persona) # False
-print("nombre" in persona) # True
+# ===================================================
+# COMPROBACIÓN SI EXISTE UNA PROPIEDAD
+# ===================================================
 
-# obtener todas las claves
+print("name" in persona) # False # Muéstrame si la propiedad 'name' existe dentro de la clase 'persona'
+print("nombre" in persona) # True # Muéstrame si la propiedad 'name' existe dentro de la clase 'persona'
+
+# ===================================================
+# OBTENCIÓN DE TODAS LAS CLAVES (.KEYS())
+# ===================================================
+
 print("\nkeys:")
 print(persona.keys())
 
-# obtener todas los valores
+# ===================================================
+# OBTENCIÓN DE TODOS LOS VALORES (.VALUES())
+# ===================================================
+
 print("\nvalues:")
 print(persona.values())
 
-# obtener tanto clave como valor
+# ===================================================
+# OBTENCIÓN TANTO DE LA CLAVE COMO EL VALOR (.ITEMS())
+# ===================================================
+
 print("\nitems:")
 print(persona.items())
 

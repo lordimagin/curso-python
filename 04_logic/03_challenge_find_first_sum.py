@@ -22,6 +22,27 @@ def find_first_sum(nums, goal):
       # | 1 | 2         | (5,7)             |
       # | 2 | —         | no entra          | 
 
+      # Lista: [4, 5, 6, 2]
+
+      # i = 0  → elemento 4
+      #   j = 1  → compara 4 con 5
+      #   j = 2  → compara 4 con 6
+      #   j = 3  → compara 4 con 2
+
+      # (Es decir: desde i = 0, j recorre todos los elementos a la derecha)
+      # Así con los demás.
+
+      # Lista: [4, 5, 6, 2]
+
+      # i = 1  → elemento 5
+      #   j = 2  → compara 5 con 6
+      #   j = 3  → compara 5 con 2
+
+      # Lista: [4, 5, 6, 2]
+
+      # i = 2  → elemento 6
+      #   j = 3  → compara 6 con 2
+
       if nums[i] + nums[j] == goal:
         return [i, j]
 
