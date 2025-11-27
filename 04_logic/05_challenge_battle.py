@@ -39,17 +39,24 @@ from os import system
 if system("clear") != 0: system("cls")
 
 # Fuerza bruta: buscar la solución A SACO.
-# Algoritmos ocultos o cálculos o fórmulas
-# Programación dinámica: buscar una solución mas eficiente
+# Algoritmos ocultos o cálculos o fórmulas.
+# Programación dinámica: buscar una solución más eficiente.
 
 
 def battle(lista_a, lista_b):
-    puntos_a = sum(lista_a)
-    puntos_b = sum(lista_b)
+    puntos_a = sum(lista_a) # puntos_a = 4 + 4 + 4 = 12
+    puntos_b = sum(lista_b) # puntos_b = 2 + 8 + 2 = 12
     return f"{puntos_a - puntos_b}a" if puntos_a > puntos_b else f"{puntos_b - puntos_a}b" if puntos_b > puntos_a else "x"
-
+    # Devuélveme "{12-12}a" SI 12 > 12, SINO "{12-12}b" SI 12 > 12, SINO "x"
+    # if puntos_a > puntos_b:
+    #   print(f"{puntos_a - puntos_b}a")
+    # elif puntos_b > puntos_a:
+    #   print(f"{puntos_b - puntos_a}b")
+    # else:
+    #   print("x")
 
 lista_a = [4, 4, 4]
 lista_b = [2, 8, 2]
 winner = battle(lista_a, lista_b)
+#battle(lista_a, lista_b)
 print(winner)

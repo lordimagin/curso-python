@@ -51,14 +51,14 @@ if system("clear") != 0: system("cls")
 def find_first_sum(nums, goal):
   seen = {} # Creamos un diccionario para guardar el número y su índice
 
-  for index, value in enumerate(nums): # Enumérame todos los elementos de 'nums' mediante su índice y el valor de cada uno
+  for index, value in enumerate(nums): # Enumérame todos los elementos de 'nums' mediante su índice {0, 1, 2, etc} y el valor de cada uno.
     missing = goal - value # Cuál es el número que me falta? (missing)
     # Goal es el número objetivo = 8
     # Missing es el número que nos hace falta para la suma hasta llegar al 8 con los de la lista.
     # Value es el número obtenido de la lista según la lista.
     if missing in seen: return [seen[missing], index] 
-    # El número que nos falta está en los revisados? Si es así, devuélveme una lista donde el primer valor sea el índice del valor que ya hemos revisado
-    seen[value] = index # guardar el número actual a los vistos, porque no hemos encontrado la combinación
+    # El número que nos falta está en los revisados? Si es así, devuélveme una lista donde el primer valor sea el índice del valor que ya hemos revisado.
+    seen[value] = index # guardar el número actual a los vistos, porque no hemos encontrado la combinación.
 
   return None
 
