@@ -15,13 +15,28 @@
 - Manipulación del texto: Extraer, reemplazar y modificar partes de la cadena de texto fácilmente
 """
 
-# 1. Importar el módulo de expresiones regulares "re"
+# =================================================================================================
+# 1r PASO - IMPORTAR EL MÓDULO DE EXPRESIONES REGULARES "re".
+# =================================================================================================
+
 import re
-# 2. Crear un patrón, que es una cadena de texto que describe lo que queremos encontrar
-pattern = "Hola"
-# 3. El texto donde queremos buscar
+
+# =================================================================================================
+# 2do PASO - CREAR UN PATRÓN, QUE ES UNA CADENA DE TEXTO QUE DESCRIBE LO QUE QUEREMOS ENCONTRAR.
+# =================================================================================================
+
+pattern = "Hola" 
+
+# =================================================================================================
+# 3r PASO - EL TEXTO DONDE QUEREMOS BUSCAR.
+# =================================================================================================
+
 text = "Hola mundo"
-# 4. Usar la función de búsqueda de "re"
+
+# =================================================================================================
+# 4to PASO - USAR LA FUNCIÓN DE BÚSQUERA DE "re".
+# =================================================================================================
+
 result = re.search(pattern, text)
 
 if result:

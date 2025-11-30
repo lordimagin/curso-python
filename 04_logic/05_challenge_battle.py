@@ -47,7 +47,7 @@ def battle(lista_a, lista_b):
     puntos_a = sum(lista_a) # puntos_a = 4 + 4 + 4 = 12
     puntos_b = sum(lista_b) # puntos_b = 2 + 8 + 2 = 12
     return f"{puntos_a - puntos_b}a" if puntos_a > puntos_b else f"{puntos_b - puntos_a}b" if puntos_b > puntos_a else "x"
-    # Devuélveme "{12-12}a" SI 12 > 12, SINO "{12-12}b" SI 12 > 12, SINO "x"
+    # Devuélveme "{12-12}a" SI 12 > 12, SINO devuélveme "{12-12}b" SI 12 > 12, SINO devuélveme "x"
     # if puntos_a > puntos_b:
     #   print(f"{puntos_a - puntos_b}a")
     # elif puntos_b > puntos_a:
