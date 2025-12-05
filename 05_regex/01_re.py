@@ -31,7 +31,7 @@ pattern = "Hola"
 # 3r PASO - EL TEXTO DONDE QUEREMOS BUSCAR.
 # =================================================================================================
 
-text = "Hola mundo"
+text = "Me llamo Marc. Hola mundo."
 
 # =================================================================================================
 # 4to PASO - USAR LA FUNCIÓN DE BÚSQUERA DE "re".
@@ -48,10 +48,10 @@ else:
 print(result.group())
 
 # .start() devolver la posición inicial de la coincidencia
-print(result.start())
+print(result.start()) # En este caso empieza en la posición 15, ya que es el inicio del texto en sí.
 
 # .end() devolver la posición final de la coincidencia
-print(result.end())
+print(result.end()) # Contamos letra a letra y te indica el final (19).
 
 # EJERCICIO 01
 # Encuentra la primera ocurrencia de la palabra "IA" en el siguiente texto
@@ -65,19 +65,21 @@ if found_ia:
 else:
   print("No he encontrado el patrón en el texto")
 
-# -----------------------
-
-### Encontrar todas las coincidencias de un patrón
-# .findall() devuelve una lista con todas las coincidencias
+# =================================================================================================
+# ENCONTRAR TODAS LAS COINCIDENCIAS DE UN PATRÓN. (.findall())
+# =================================================================================================
 
 text = "Me gusta Python. Python es lo máximo. Aunque Python no es tan difícil, ojo con Python"
 pattern = "Python"
 
-matches = re.findall(pattern, text)
+matches = re.findall(pattern, text) # Cuántas veces sale? Devuelve una lista.
 
 print(len(matches))
+print(matches)
 
-# -------------------------
+# =================================================================================================
+# ENCONTRAR TODA LA INFORMACIÓN ANTERIOR. (.finditer())
+# =================================================================================================
 
 # iter() devuelve un iterador que contiene todos los resultados de la búsqueda
 
@@ -93,7 +95,15 @@ for match in matches:
 # Encuentra todas las ocurrencias de la palabra "midu" en el siguiente texto e indica en que posición empieza y termina cada coincidencia y cuantas veces se encontró.
 text = "Este es el curso de Python de midudev. ¡Suscríbete a midudev si te gusta este contenido! midu"
 
-### Modificadores
+pattern = "midu"
+matches = re.finditer(pattern, text)
+
+for match in matches:
+    print(match.group(), match.start(), match.end())
+
+# =================================================================================================
+# MODIFICADORES
+# =================================================================================================
 
 # Los modificadores son opciones que se pueden agregar a un patrón para cambiar su comportamiento
 
@@ -101,15 +111,26 @@ text = "Este es el curso de Python de midudev. ¡Suscríbete a midudev si te gus
 
 text = "Todo el mundo dice que la IA nos va a quitar el trabajo. Pero la ia no es tan mala. ¡Viva la Ia!"
 pattern = "IA"
-found = re.findall(pattern, text, re.IGNORECASE)
+found = re.findall(pattern, text, re.IGNORECASE) # Te paso el patrón y el texto PERO me ignoras si son mayus o minus.
 
 if found: print(found)
 
 # EJERCICIO 03
 # Encuentra todas las ocurrencias de la palabra "python" en el siguiente texto, sin distinguir entre mayúsculas y minúsculas.
 text = "Este es el curso de Python de midudev. ¡Suscríbete a python si te gusta este contenido! PYTHON"
+pattern = "python"
 
-### Reemplazar el texto
+matches = re.findall(pattern, text, re.IGNORECASE)
+#matches2 = re.finditer(pattern, text, re.IGNORECASE)
+
+#for match in matches2:
+#  print(match.group(), match.start(), match.end())
+
+if matches: print(matches)
+
+# =================================================================================================
+# REEMPLAZAR EL TEXTO
+# =================================================================================================
 
 # .sub() reemplaza todas las coincidencias de un patrón en un texto
 
@@ -118,4 +139,5 @@ pattern = "hola"
 replacement = "Adiós"
 
 new_text = re.sub(pattern, replacement, text, flags=re.IGNORECASE)
+# re.sub(patrón, el remplazo que quiero modificar, el texto, flags -> modificadores (ej. ignorar las mayus y minus))
 print(new_text)

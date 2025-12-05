@@ -5,11 +5,15 @@
 
 import re
 
-# 1. El punto (.)
+# ===================================================
+# 1. EL PUNTO (.)
+# ===================================================
+
 # Coincidir con cualquier caracter excepto una nueva linea
 
 text = "Hola mundo, H0la de nuevo, H$la otra vez"
 pattern = "H.la" # Hola, H0la, H$la
+# En la posición del punto, puede haber CUALQUIER cosa, cualquier caracter normal o especial.
 
 found = re.findall(pattern, text)
 
@@ -27,6 +31,8 @@ print(matches)
 
 # --------------------
 
+# r = Expresión Regular.
+
 text = "Hola mundo, H0la de nuevo, H$la otra vez"
 pattern = r"H.la" # Hola, H0la, H$la
 
@@ -40,7 +46,7 @@ else:
 
 # Cómo usar la barra invertida para anular el significado especial de un símbolo
 text = "Mi casa es blanca. Y el coche es negro."
-pattern = r"\."
+pattern = r"\." # La \ eliminar el significado especial y lo convierte en un punto normal.
 
 matches = re.findall(pattern, text)
 
@@ -49,14 +55,33 @@ print(matches)
 # \d: coincide con cualquier dígito (0-9)
 
 text = "El número de teléfono es 123456789"
-found = re.findall(r'\d{9}', text)
+found = re.findall(r'\d{9}', text) # Encuéntrame un grupo de 9 dígitos juntos.
+found2 = re.findall(r'\d', text) # Encuéntrame dígito a dígito.
 
 print(found)
+print(found2)
+
+# ===================================================
+# EJERCICIO DE REEMPLAZO
+# ===================================================
+
+# Alterna entre "NOMBRE" y "EDAD" para cada coincidencia
+contador = 0
+ 
+def reemplazar_alternado(match):
+   global contador
+   contador = contador + 1
+   return "NOMBRE" if contador % 2 == 1 else "EDAD"
+ 
+texto = "Hola, mi nombre es Juan y tengo 30 años."
+resultado = re.sub(r"\b\w+\b", reemplazar_alternado, texto)
+ 
+print(resultado)
 
 # Ejercicio: Detectar si hay un número de España en el texto gracias al prefijo +34
 
 text = "Mi número de teléfono es +34 688999999 apúntalo vale?"
-pattern = r"\+34 \d{9}"
+pattern = r"\+34 \d{9}" # +34 XXXXXXXXX
 found = re.search(pattern, text)
 if found: print(f"Encontré el número de teléfono {found.group()}")
 
