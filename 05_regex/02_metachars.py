@@ -5,9 +5,9 @@
 
 import re
 
-# ===================================================
+# =================================================================================================
 # 1. EL PUNTO (.)
-# ===================================================
+# =================================================================================================
 
 # Coincidir con cualquier caracter excepto una nueva linea
 
@@ -52,7 +52,9 @@ matches = re.findall(pattern, text)
 
 print(matches)
 
-# \d: coincide con cualquier dígito (0-9)
+# =================================================================================================
+# \d (COINCIDE CON CUALQUIER DÍGITO (0-9))
+# =================================================================================================
 
 text = "El número de teléfono es 123456789"
 found = re.findall(r'\d{9}', text) # Encuéntrame un grupo de 9 dígitos juntos.
@@ -61,9 +63,9 @@ found2 = re.findall(r'\d', text) # Encuéntrame dígito a dígito.
 print(found)
 print(found2)
 
-# ===================================================
-# EJERCICIO DE REEMPLAZO
-# ===================================================
+# =================================================================================================
+# # EJERCICIO DE REEMPLAZO
+# =================================================================================================
 
 # Alterna entre "NOMBRE" y "EDAD" para cada coincidencia
 contador = 0
@@ -85,20 +87,28 @@ pattern = r"\+34 \d{9}" # +34 XXXXXXXXX
 found = re.search(pattern, text)
 if found: print(f"Encontré el número de teléfono {found.group()}")
 
-# \w: Coincide con cualquier caracter alfanumerico (a-z, A-Z, 0-9, _)
+# =================================================================================================
+# \w (COINCIDE CON CUALQUIER CARÁCTER ALFANUMÉRICO ((a-z, A-Z, 0-9, _))
+# =================================================================================================
 
 text = "el_rubius_69"
 pattern = r"\w"
 found = re.findall(pattern, text)
 print(found)
 
-# \s: Coincide con cualqueir espacio en blanco (espacio, tabulación, salto de línea)
+# =================================================================================================
+# \s (COINCIDE CON CUALQUIER ESPACIO EN BLANCO (ESPACIO, TABULACIÓN, SALTO DE LÍNEA))
+# =================================================================================================
+
 text = "Hola mundo\n¿Cómo estás?\t"
 pattern = r"\s"
 matches = re.findall(pattern, text)
 print(matches)
 
-# ^: Coincide con el principio de una cadena
+# =================================================================================================
+# ^ (COINCIDE CON EL PRINCIPIO DE UNA CADENA)
+# =================================================================================================
+
 username = "423_name%22" 
 pattern = r"^\w" # validar nombre de usuario
 
@@ -115,7 +125,10 @@ valid = re.search(pattern, phone)
 if valid: print("El número de teléfono es válido")
 else: print("El número de teléfono no es válido")
 
-# $: Coincide con el final de una cadena
+# =================================================================================================
+# $ (COINCIDE CON EL FINAL DE UNA CADENA)
+# =================================================================================================
+
 text = "Hola mundo."
 pattern = r"mundo$"
 
