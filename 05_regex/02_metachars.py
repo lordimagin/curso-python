@@ -174,7 +174,17 @@ print(valid)
 # =================================================================================================
 
 text = "casa casada cosa cosas casado casa"
-pattern = r"\bc.sa\b" # El principio de la palabra que empiece por "c" y el final sea "a"
+pattern = r"\bc.sa\b" # Palabras de 4 letras que empiecen por c y terminen en sa.
+
+# | Palabra  | ¿Coincide?  | Motivo              |
+# | -------- | ----------  | ------------------- |
+# | `casa`   |     ✅      | c + a + sa         |
+# | `casada` |     ❌      | tiene más letras   |
+# | `cosa`   |     ✅      | c + o + sa         |
+# | `cosas`  |     ❌      | termina en `s`     |
+# | `casado` |     ❌      | termina en `do`    |
+# | `casa`   |     ✅      | vuelve a coincidir |
+
 
 found = re.findall(pattern, text)
 print(found)
@@ -183,8 +193,9 @@ print(found)
 # | (COINCIDIR CON UNA OPCIÓN U OTRA)
 # =================================================================================================
 
-fruits = "platano, piña, manzana, aguacate, palta, pera, aguacate, aguacate"
-pattern = r"palta|aguacate|p..a|\b\w{7}\b"
+fruits = "plátano, piña, manzana, aguacate, palta, pera, aguacate, aguacate"
+pattern = r"palta|aguacate|p..a|\b\w{7}\b" # Encuéntrame palta Ó aguacate Ó todas las palabras de 4 letras Ó aquellas palabras
+# de 7 carácteres.
 
 matches = re.findall(pattern, fruits)
 print(matches)
