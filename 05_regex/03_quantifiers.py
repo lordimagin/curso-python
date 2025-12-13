@@ -5,7 +5,10 @@
 
 import re
 
-# *: Puede aparecer 0 o más veces
+# =================================================================================================
+# * (PUEDE APARECER 0 Ó MÁS VECES)
+# =================================================================================================
+
 text = "aaaba"
 pattern = "a*"
 matches = re.findall(pattern, text)
@@ -14,6 +17,9 @@ print(matches)
 # Ejercicio 1:
 # ¿Cuantas palabras tienen de 0 a más "a" y después una b?
 
+# =================================================================================================
+# + (UN CARÁCTER QUE APARECE MÁS VECES)
+# =================================================================================================
 # +: Una a más veces
 text = "dddd aaa ccc a bb aa casa"
 pattern = "a+"
