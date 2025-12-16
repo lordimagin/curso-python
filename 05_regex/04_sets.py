@@ -1,8 +1,7 @@
 import re
 
-
 # =================================================================================================
-# [:] - COINCIDE CON CUALQUIER CARÁCTER DENTRO DE LOS CORCHETES
+# [:] - COINCIDE CON CUALQUIER CARÁCTER DENTRO DE LOS CORCHETES.
 # =================================================================================================
 
 username = "rub.$ius_69+"
@@ -54,16 +53,59 @@ pattern = r"[4-9]"
 matches = re.findall(pattern, text)
 print(matches)
 
+# =================================================================================================
+# [^] - COINCIDE CON CUALQUIER CARÁCTER QUE NO ESTÉ DENTRO DE LOS CORCHETES.
+# =================================================================================================
 
-# Ejercicio final con todo lo aprendido
-# Mejorar esto: https://www.computerhope.com/jargon/r/regular-expression.png
-
-## Buscar corner cases que no pasa y arreglarlo:
-"lo.que+sea@shopping.online"
-"michael@gov.co.uk"
-
-# [^]: Coincide con cualquier caracter que no esté dentro de los corchetes
 text = "Hola mundo"
 pattern = r"[^aeiou]"
+# Devuélveme todo aquello que no coincida con lo que hay dentro de los corchetes.
 matches = re.findall(pattern, text)
 print(matches)
+
+# =================================================================================================
+# EJERCICIO FINAL.
+# =================================================================================================
+
+# Mejorar esto: https://www.computerhope.com/jargon/r/regular-expression.png
+
+### /[\w._%+-]+@[\w.-]+\.[a-zA-Z]{2,4}/
+# [\w._%+-] -> Cualquier cosa que esté aquí:
+#   - Carácteres alfanuméricos.
+#   - Un punto.
+#   - Una barra baja.
+#   - Un %.
+#   - Un +.
+#   - Un -.
+# +@ -> Tantas veces como sea posible antes de la '@'.
+# [\w.-] -> Cualquier cosa que esté aquí:
+#   - Carácteres alfanuméricos.
+#   - Un punto.
+#   - Un guión.
+# +\. -> Tantas veces como sea posible antes del '.'.
+# [a-zA-Z]{2,4} -> Extensión (.es, .com, .org, etc):
+#   - Carácteres alfanuméricos.
+#   - Un punto.
+#   - Una barra baja.
+
+## Buscar corner cases que no pasa y arreglarlo:
+text = "lo.que+sea@shopping.online"
+#text2 = "marc.gomis07@gmail.com"
+pattern = r'^[\w._%+-]+@[\w.-]+\.[a-zA-Z.]+$'
+matches = re.findall(pattern, text)
+print(matches)
+
+text = "michael@gov.co.uk"
+pattern = r"^[\w._%+-]+@[\w-]+(?:\.[\w-]+)+$"
+matches = re.findall(pattern, text)
+print(matches)
+
+# Si hay un () -> capturará solamente lo que hay en su interior.
+# Con el .findall, solamente mostrará lo capturado: ['.uk']
+# Si no queremos que se capture, añadimos '?:' dentro del () para decirle que ignore la captura.
+
+# 🧠 Regla de oro
+#   - Validar → re.search o re.match
+#   - Extraer texto → re.findall
+#   - Usas findall + paréntesis → devuelve SOLO los grupos, lo que hay entre ()
+#   - No quieres capturar → (?: ...)
