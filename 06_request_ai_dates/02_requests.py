@@ -1,33 +1,48 @@
-# Cómo hacer peticiones a APIs con Python
-# con y sin dependencias
+### =========================================================================================== ###
+### =========================================================================================== ###
+#                                 PETICIONES EN API'S CON PYTHON                                  #
+### =========================================================================================== ###
+### =========================================================================================== ###
 
-# 1. Sin dependencias (díficil y sin dependencias)
+# =================================================================================================
+# 1. SIN DEPENDENCIAS (DIFÍCIL).
+# =================================================================================================
+
 import urllib.request
 import json
 
 DEEPSEEK_API_KEY = "xxx"
 
-api_posts = "https://jsonplaceholder.typicode.com/posts/"
+api_posts = "https://jsonplaceholder.typicode.com/posts/" # API con la que trabajaremos.
 
 try:
-  response = urllib.request.urlopen(api_posts)
-  data = response.read()
-  json_data = json.loads(data.decode('utf-8'))
-  print(json_data)
-  response.close()
-except urllib.error.URLError as e:
+  response = urllib.request.urlopen(api_posts) # Quiero que vayas a esa URL y la abras.
+  data = response.read() # Una vez abierta la URL tenemos que leer esos datos
+  json_data = json.loads(data.decode('utf-8')) # Pero qué pasa? Python no ha podido decodificar tocavía
+  # Así que le tenemos que decir que cargue un json de los datos que tenemos que decodificar en 'utf-8':
+  # Vamos a decodificar los datos y cargarlos en un JSON.
+  print(json_data) # Mostramos lo que hay en el JSON.
+  response.close() # Cerramos la pestaña de la URL.
+except urllib.error.URLError as e: # Usamos un 'try-except' por si nos diera un error que no pete, 
+  # simplemente que aparezca un error escrito.
   print(f"Error en la solicitud: {e}")
 
+# =================================================================================================
+# 2. CON DEPENDENCIAS (REQUESTS/PETICIONES).
+# =================================================================================================
 
-# 2. Con dependencia (requests)
 import requests
 
 print("\nGET:")
 api_posts = "https://jsonplaceholder.typicode.com/posts/"
 response = requests.get(api_posts)
-response_json = response.json()
+json = response.json()
+print(json[2])
 
-# 3. Un POST
+# =================================================================================================
+# 3. POST.
+# =================================================================================================
+
 print("\nPOST:")
 try:
   response = requests.post(
@@ -41,7 +56,10 @@ try:
 except requests.exceptions.RequestException as e:
   print(f"Error en la solicitud: {e}")
 
-# 4. Un PUT
+# =================================================================================================
+# 4. PUT.
+# =================================================================================================
+
 print("\nPUT:")
 try:
   response = requests.put(
@@ -55,6 +73,10 @@ try:
   print(response.status_code)
 except requests.exceptions.RequestException as e:
   print(f"Error en la solicitud: {e}")
+
+# =================================================================================================
+# 5. USANDO API'S.
+# =================================================================================================
 
 # Usar la API de GPT-4o de OpenAI
 # Ref: https://platform.openai.com/docs/api-reference/making-requests
