@@ -116,7 +116,7 @@ def call_openai_gpt(api_key, prompt):
 
 api_response = call_openai_gpt(OPENAI_KEY, "Escribe un breve poema sobre la programación")
 
-print(json.dumps(api_response, indent=2))
+# print(json.dumps(api_response, indent=2))
 
 print(api_response["choices"][0]["message"]["content"])
 
