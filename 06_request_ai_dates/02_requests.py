@@ -33,17 +33,17 @@ except urllib.error.URLError as e: # Usamos un 'try-except' por si nos diera un 
 
 import requests
 
-print("\nGET:")
-api_posts = "https://jsonplaceholder.typicode.com/posts/"
-response = requests.get(api_posts)
-json = response.json()
-print(json[2])
+print("\nGET:") # Queremos leer algo de la DDBB
+api_posts = "https://jsonplaceholder.typicode.com/posts/" # Introducimos nuestro URL en una variable
+response = requests.get(api_posts) # Le decimos: 'Quiero una lectura de esta DDBB' y la metemos en 'response' 
+response_json = response.json() # Convertimos la respuesta en un JSON.
+print(response_json[2])
 
 # =================================================================================================
 # 3. POST.
 # =================================================================================================
 
-print("\nPOST:")
+print("\nPOST:") # Vamos a crear/enviar datos a la DDBB
 try:
   response = requests.post(
     "https://jsonplaceholder.typicode.com/posts",
@@ -52,6 +52,7 @@ try:
       "body": "bar",
       "userId": 1
     })
+  # Te voy a enviar a X sitio, esta info.
   print(response.status_code)
 except requests.exceptions.RequestException as e:
   print(f"Error en la solicitud: {e}")
@@ -60,7 +61,7 @@ except requests.exceptions.RequestException as e:
 # 4. PUT.
 # =================================================================================================
 
-print("\nPUT:")
+print("\nPUT:") # Quiero actualizar una información de la DDBB
 try:
   response = requests.put(
     "https://jsonplaceholder.typicode.com/posts/1",
@@ -73,6 +74,20 @@ try:
   print(response.status_code)
 except requests.exceptions.RequestException as e:
   print(f"Error en la solicitud: {e}")
+
+# DIFERENCIA ENTRE PATCH Y PUT: 
+# PATCH (Parche) -> Le envías solamente el parámetro que quieres cambiar:
+#   - Ya sea el title, el body o el userId.
+# PUT (Entero) -> Le envías TODA la información aunque solamente le cambies un parámetro.
+
+# | Método | Acción     | Modifica   | Repetible  | Uso típico          |
+# | ------ | ---------- | --------   | ---------  | ------------------- |
+# | GET    | Leer       | ❌ No     | ✅ Sí      | Obtener datos       |
+# | POST   | Crear      | ✅ Sí     | ❌ No      | Crear recursos      |
+# | PUT    | Reemplazar | ✅ Sí     | ✅ Sí      | Actualizar completo |
+
+
+
 
 # =================================================================================================
 # 5. USANDO API'S.
@@ -101,7 +116,7 @@ def call_openai_gpt(api_key, prompt):
 
 api_response = call_openai_gpt(OPENAI_KEY, "Escribe un breve poema sobre la programación")
 
-# print(json.dumps(api_response, indent=2))
+print(json.dumps(api_response, indent=2))
 
 print(api_response["choices"][0]["message"]["content"])
 
